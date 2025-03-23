@@ -41,7 +41,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
               <TrainIcon className="h-5 w-5 text-primary mt-0.5" />
               <div>
                 <h3 className="font-semibold">{train.name}</h3>
-                <p className="text-sm text-muted-foreground">{train.number}</p>
+                <p className="text-sm text-muted-foreground">#{train.number}</p>
               </div>
             </div>
             <Badge variant="outline" className="bg-primary/10">
@@ -129,20 +129,20 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
         <div className="space-y-2">
           <div className="flex justify-between items-center">
             <p className="text-sm">Ticket Price ({getClassLabel(classType)})</p>
-            <p className="text-sm">${train.price[classType]} × {passengers}</p>
+            <p className="text-sm">₹{train.price[classType]} × {passengers}</p>
           </div>
           <div className="flex justify-between items-center">
-            <p className="text-sm">Service Fee</p>
-            <p className="text-sm">${(train.price[classType] * 0.05).toFixed(2)}</p>
+            <p className="text-sm">Convenience Fee</p>
+            <p className="text-sm">₹{(train.price[classType] * 0.05).toFixed(2)}</p>
           </div>
           <div className="flex justify-between items-center">
-            <p className="text-sm">Taxes</p>
-            <p className="text-sm">${(train.price[classType] * 0.08).toFixed(2)}</p>
+            <p className="text-sm">GST (5%)</p>
+            <p className="text-sm">₹{(train.price[classType] * 0.05).toFixed(2)}</p>
           </div>
           <Separator />
           <div className="flex justify-between items-center font-semibold">
             <p>Total</p>
-            <p>${totalPrice.toFixed(2)}</p>
+            <p>₹{totalPrice.toFixed(2)}</p>
           </div>
         </div>
       </CardContent>

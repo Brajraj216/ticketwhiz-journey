@@ -22,7 +22,7 @@ const SearchResults: React.FC<SearchResultsProps> = ({ fromId, toId, date }) => 
   const [trains, setTrains] = useState<Train[]>([]);
   const [filteredTrains, setFilteredTrains] = useState<Train[]>([]);
   const [selectedClass, setSelectedClass] = useState<ClassType>('economy');
-  const [priceRange, setPriceRange] = useState([0, 500]);
+  const [priceRange, setPriceRange] = useState([0, 5000]);
   const [timeFilters, setTimeFilters] = useState({
     morning: true,
     afternoon: true,
@@ -101,19 +101,19 @@ const SearchResults: React.FC<SearchResultsProps> = ({ fromId, toId, date }) => 
             <div className="space-y-6">
               {/* Price Range */}
               <div>
-                <h4 className="text-sm font-medium mb-3">Price Range</h4>
+                <h4 className="text-sm font-medium mb-3">Price Range (₹)</h4>
                 <div className="px-2">
                   <Slider
-                    defaultValue={[0, 500]}
-                    max={500}
-                    step={10}
+                    defaultValue={[0, 5000]}
+                    max={5000}
+                    step={100}
                     value={priceRange}
                     onValueChange={setPriceRange}
                     className="mb-2"
                   />
                   <div className="flex justify-between text-sm text-muted-foreground">
-                    <span>${priceRange[0]}</span>
-                    <span>${priceRange[1]}</span>
+                    <span>₹{priceRange[0]}</span>
+                    <span>₹{priceRange[1]}</span>
                   </div>
                 </div>
               </div>

@@ -39,7 +39,7 @@ const TrainCard: React.FC<TrainCardProps> = ({
             <TrainIcon className="h-5 w-5 text-primary mr-2" />
             <div>
               <h3 className="font-semibold">{train.name}</h3>
-              <p className="text-xs text-muted-foreground">{train.number}</p>
+              <p className="text-xs text-muted-foreground">#{train.number}</p>
             </div>
           </div>
           <Badge variant="outline" className="bg-primary/10">
@@ -89,7 +89,7 @@ const TrainCard: React.FC<TrainCardProps> = ({
                 <div className="flex justify-between items-center mt-2">
                   <div>
                     <p className="text-sm text-muted-foreground">Price</p>
-                    <p className="text-xl font-semibold">${train.price[selectedClass]}</p>
+                    <p className="text-xl font-semibold">₹{train.price[selectedClass]}</p>
                   </div>
                   <Link to={`/booking/${train.id}?date=${date}&class=${selectedClass}`}>
                     <Button size="sm" className="gap-1">
