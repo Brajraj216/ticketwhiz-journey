@@ -36,7 +36,9 @@ const TrainCard: React.FC<TrainCardProps> = ({
       <CardContent className="p-0">
         <div className="bg-secondary/30 px-6 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <TrainIcon className="h-5 w-5 text-primary mr-2" />
+            <div className="bg-primary/10 p-1 rounded-full mr-3">
+              <TrainIcon className="h-5 w-5 text-primary" />
+            </div>
             <div>
               <h3 className="font-semibold">{train.name}</h3>
               <p className="text-xs text-muted-foreground">#{train.number}</p>
@@ -54,6 +56,7 @@ const TrainCard: React.FC<TrainCardProps> = ({
                 <p className="text-sm text-muted-foreground">Departure</p>
                 <p className="text-2xl font-semibold">{formatTime(train.departureTime)}</p>
                 <p className="text-sm">{train.from.name}</p>
+                <p className="text-xs text-muted-foreground">{train.from.city}</p>
               </div>
 
               <div className="hidden md:block relative w-24">
@@ -66,6 +69,7 @@ const TrainCard: React.FC<TrainCardProps> = ({
                 <p className="text-sm text-muted-foreground">Arrival</p>
                 <p className="text-2xl font-semibold">{formatTime(train.arrivalTime)}</p>
                 <p className="text-sm">{train.to.name}</p>
+                <p className="text-xs text-muted-foreground">{train.to.city}</p>
               </div>
             </div>
 

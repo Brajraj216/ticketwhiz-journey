@@ -30,15 +30,20 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
 
   return (
     <Card className="w-full animate-fade-up">
-      <CardHeader className="pb-3">
-        <CardTitle>Booking Summary</CardTitle>
+      <CardHeader className="pb-3 border-b">
+        <CardTitle className="flex items-center gap-2">
+          <TrainIcon className="h-5 w-5 text-primary" />
+          Booking Summary
+        </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 pt-4">
         {/* Train Details */}
         <div className="space-y-3">
           <div className="flex items-start justify-between">
             <div className="flex items-start space-x-3">
-              <TrainIcon className="h-5 w-5 text-primary mt-0.5" />
+              <div className="bg-primary/10 p-1 rounded-full">
+                <TrainIcon className="h-5 w-5 text-primary" />
+              </div>
               <div>
                 <h3 className="font-semibold">{train.name}</h3>
                 <p className="text-sm text-muted-foreground">#{train.number}</p>
@@ -96,7 +101,7 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
           <div className="pl-6 space-y-2">
             <div className="flex justify-between items-center">
               <p className="text-sm text-muted-foreground">Class</p>
-              <p className="text-sm font-medium">{getClassLabel(classType)}</p>
+              <Badge variant="secondary">{getClassLabel(classType)}</Badge>
             </div>
             <div className="flex justify-between items-center">
               <p className="text-sm text-muted-foreground">Passengers</p>
@@ -110,7 +115,10 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
           <>
             <Separator />
             <div className="space-y-3">
-              <h3 className="font-medium">Selected Seats</h3>
+              <h3 className="font-medium flex items-center gap-2">
+                <TicketIcon className="h-4 w-4 text-primary" />
+                Selected Seats
+              </h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 {seats.map((seat) => (
                   <Badge key={seat.id} variant="outline" className="justify-between text-sm py-1.5">
@@ -128,12 +136,16 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
         {/* Pricing */}
         <div className="space-y-2">
           <div className="flex justify-between items-center">
-            <p className="text-sm">Ticket Price ({getClassLabel(classType)})</p>
+            <p className="text-sm">Base Fare ({getClassLabel(classType)})</p>
             <p className="text-sm">₹{train.price[classType]} × {passengers}</p>
           </div>
           <div className="flex justify-between items-center">
-            <p className="text-sm">Convenience Fee</p>
-            <p className="text-sm">₹{(train.price[classType] * 0.05).toFixed(2)}</p>
+            <p className="text-sm">Reservation Fee</p>
+            <p className="text-sm">₹{(train.price[classType] * 0.03).toFixed(2)}</p>
+          </div>
+          <div className="flex justify-between items-center">
+            <p className="text-sm">Fuel Charge</p>
+            <p className="text-sm">₹{(train.price[classType] * 0.02).toFixed(2)}</p>
           </div>
           <div className="flex justify-between items-center">
             <p className="text-sm">GST (5%)</p>
@@ -141,8 +153,8 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
           </div>
           <Separator />
           <div className="flex justify-between items-center font-semibold">
-            <p>Total</p>
-            <p>₹{totalPrice.toFixed(2)}</p>
+            <p>Total Amount</p>
+            <p className="text-primary">₹{totalPrice.toFixed(2)}</p>
           </div>
         </div>
       </CardContent>
@@ -162,3 +174,6 @@ const BookingSummary: React.FC<BookingSummaryProps> = ({ bookingDetails, isCheck
 };
 
 export default BookingSummary;
+
+// Import TicketIcon
+import { Ticket as TicketIcon } from 'lucide-react';
