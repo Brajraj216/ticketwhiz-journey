@@ -177,7 +177,7 @@ export const destinations: Destination[] = [
     id: '6',
     name: 'Washington DC',
     image: 'https://images.unsplash.com/photo-1622748055889-0c4a3f8eafae?q=80&w=1000&auto=format&fit=crop',
-    description: 'Tour the capital's impressive monuments and world-class museums.',
+    description: 'Tour the capital\'s impressive monuments and world-class museums.',
     popular: true,
   },
 ];

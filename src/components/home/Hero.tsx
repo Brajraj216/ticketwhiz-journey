@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MapPin, Calendar, Train as TrainIcon } from 'lucide-react';
+import { ArrowRight, MapPin, Calendar as CalendarIcon, Train as TrainIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -95,7 +95,7 @@ const Hero = () => {
                             !date && "text-muted-foreground"
                           )}
                         >
-                          <Calendar className="mr-2 h-4 w-4" />
+                          <CalendarIcon className="mr-2 h-4 w-4" />
                           {date ? format(date, "PPP") : <span>Select a date</span>}
                         </Button>
                       </PopoverTrigger>
@@ -149,7 +149,7 @@ const Hero = () => {
               description: "Travel in comfort with premium amenities and top-notch service.",
             },
             {
-              icon: <Calendar className="h-8 w-8 text-primary" />,
+              icon: <CalendarIcon className="h-8 w-8 text-primary" />,
               title: "Flexible Booking",
               description: "Change plans? Modify your booking with ease and minimal charges.",
             },
